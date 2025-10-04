@@ -124,7 +124,7 @@ document.getElementById("cancelEditBtn").addEventListener("click", () => {
   document.getElementById("projectDesc").value = "";
   // document.getElementById("projectImg").value = "";
   document.getElementById("formTitle").textContent = "📁";
-  document.getElementById("addProjectBtn").textContent = "➕ Add project";
+  document.getElementById("addProjectBtn").textContent = "➕";
   document.getElementById("cancelEditBtn").style.display = "none";
 });
 
