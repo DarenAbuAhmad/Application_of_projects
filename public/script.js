@@ -73,7 +73,6 @@ function displayProjects() {
       editId = id;
       document.getElementById("projectName").value = project.name;
       document.getElementById("projectDesc").value = project.description;
-      // document.getElementById("projectImg").value = project.image;
 
       document.getElementById("formTitle").textContent = "✏️";
       document.getElementById("addProjectBtn").textContent = "💾";
