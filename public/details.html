@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>Project Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: rgb(193, 222, 234);
+      text-align: center;
+      margin: 0;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin: 50px auto;
+      border-radius: 10px;
+      box-shadow: 0 20px 6px rgba(0,0,0,0.3);
+      width: 300px;
+      max-width: 90%;       
+      text-align: center;
+    }
+
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 20px;
+      color: black;
+    }
+
+    .stars { 
+      cursor: pointer; 
+      color: gray; 
+      font-size: 30px; 
+      margin: 0 2px;
+    }
+
+    .stars.selected { 
+      color: gold; 
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: none;
+      background-color: white;
+      color: black;
+      font-size: 14px;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Project Details</h1>
+<div id="projectContainer" class="card"></div>
+<a href="index.html"><button>⬅ Back to menu</button></a>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const projectId = parseInt(urlParams.get("id"));
+
+function getProjects() {
+    const stored = JSON.parse(localStorage.getItem("projectsData"));
+    if (stored && stored.length) return stored;
+    return [
+  { id: 1, name: "Subway Game Project", description: "משחק ריצה מהנה ברכבת התחתית", rating: 0 },
+  { id: 2, name: "Application Projects", description: "עוזר למשתמשים לארגן פרויקטים", rating: 0 },
+  { id: 3, name: "TO-DO List Project", description: "רשימת משימות", rating: 0 },
+  { id: 4, name: "Memory Game Project", description: "משחק זיכרון", rating: 0 },
+  { id: 5, name: "Simon Game Project", description: "משחק צבעים וקולות", rating: 0 }
+    ];
+}
+
+function saveProjects(projects) {
+    localStorage.setItem("projectsData", JSON.stringify(projects));
+}
+
+
+function displayProject(project) {
+  const container = document.getElementById("projectContainer");
+  container.innerHTML = `
+    <h2>${project.name}</h2>
+    <p>${project.description}</p>
+    <div id="stars">
+      ${[1,2,3,4,5].map(i => 
+        `<span class="stars ${i <= (project.rating || 0) ? 'selected' : ''}" 
+              data-id="${project.id}" 
+              data-value="${i}">&#9733;</span>`).join('')}
+    </div>
+  `;
+
+  document.querySelectorAll(".stars").forEach(star => {
+    star.addEventListener("click", () => {
+      const value = parseInt(star.getAttribute("data-value"));
+      const ratedProjects = JSON.parse(localStorage.getItem("ratedProjects") || "[]");
+
+      if (ratedProjects.includes(project.id)) {
+        alert("You have already rated this project!");
+        return;
+      }
+
+      // Send rating to server
+      fetch(`/projects/${project.id}/rate`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ rating: value })
+      })
+      .then(res => {
+        if (!res.ok) throw new Error("Failed to update rating");
+        return res.json();
+      })
+      .then(updatedProject => {
+        ratedProjects.push(project.id);
+        localStorage.setItem("ratedProjects", JSON.stringify(ratedProjects));
+        displayProject(updatedProject); // تحديث العرض بعد التقييم
+      })
+      .catch(err => {
+        alert("Error rating project.");
+        console.error(err);
+      });
+    });
+  });
+}
+
+function fetchProject() {
+  fetch(`/projects/${projectId}`)
+    .then(res => {
+      if (!res.ok) throw new Error("Project not found");
+      return res.json();
+    })
+    .then(project => {
+      displayProject(project);
+    })
+    .catch(() => {
+      document.getElementById("projectContainer").innerHTML = "<p>Project not found!</p>";
+    });
+}
+
+fetchProject();
+</script>
+
+</body>
+</html>

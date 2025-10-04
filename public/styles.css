@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background:  rgb(193, 222, 234);;
+    text-align: center;
+    margin: 0;
+}
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+.form-container {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.form-container input {
+    display: block;
+    width: 300px;
+    margin: 5px auto;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.form-container button {
+    margin: 5px 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#addProjectBtn { background-color: #4CAF50; color: white; }
+#cancelEditBtn { background-color: red; color: white; }
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.project-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 8px rgba(0,0,0,0.1);
+    width: 220px;
+    margin: 15px;
+    text-align: center;
+    padding: 10px;
+}
+
+.project-card h3 {
+    margin: 10px 0 5px 0;
+}
+.project-card p {
+    font-size: 16px;
+    color: black;
+    height: 70px;
+    overflow: hidden;
+}
+.stars { cursor: pointer; color: gray; font-size: 20px; margin: 0 2px; }
+.stars.selected { color: gold; }
+.actions {
+    margin-top: 10px;
+}
+.actions button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.actions .editBtn { color: white; }
+.actions .deleteBtn {  color: white; }
