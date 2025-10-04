@@ -95,7 +95,6 @@ document.getElementById("addProjectBtn").addEventListener("click", () => {
     const project = projects.find(p => p.id === editId);
     project.name = name;
     project.description = desc;
-    // editId = null;
     document.getElementById("formTitle").textContent = "📁";
     document.getElementById("addProjectBtn").textContent = "➕";
     document.getElementById("cancelEditBtn").style.display = "none";
@@ -123,5 +122,4 @@ document.getElementById("cancelEditBtn").addEventListener("click", () => {
   document.getElementById("addProjectBtn").textContent = "➕";
   document.getElementById("cancelEditBtn").style.display = "none";
 });
-
 displayProjects();
