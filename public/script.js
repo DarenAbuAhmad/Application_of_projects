@@ -98,7 +98,7 @@ document.getElementById("addProjectBtn").addEventListener("click", () => {
     project.name = name;
     project.description = desc;
     // editId = null;
-    document.getElementById("formTitle").textContent = "📁 Add new project";
+    document.getElementById("formTitle").textContent = "📁";
     document.getElementById("addProjectBtn").textContent = "➕ Add project";
     document.getElementById("cancelEditBtn").style.display = "none";
   } else {
