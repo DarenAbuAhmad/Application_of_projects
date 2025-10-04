@@ -94,7 +94,6 @@ document.getElementById("addProjectBtn").addEventListener("click", () => {
     alert("Name and description are required!");
     return;
   }
-
   const projects = getProjects();
 
   if (editId) {
