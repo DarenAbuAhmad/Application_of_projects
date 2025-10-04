@@ -127,7 +127,6 @@ function displayProject(project) {
     });
   });
 }
-
 function fetchProject() {
   fetch(`/projects/${projectId}`)
     .then(res => {
@@ -141,7 +140,6 @@ function fetchProject() {
       document.getElementById("projectContainer").innerHTML = "<p>Project not found!</p>";
     });
 }
-
 fetchProject();
 </script>
 
