@@ -103,8 +103,7 @@ function displayProject(project) {
         alert("You have already rated this project!");
         return;
       }
-
-      // Send rating to server
+      
       fetch(`/projects/${project.id}/rate`, {
         method: "PATCH",
         headers: {
