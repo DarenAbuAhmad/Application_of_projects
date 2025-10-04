@@ -6,6 +6,7 @@ const open = require("open");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
 app.use(cors());
 app.use(express.json());
 
@@ -73,7 +74,6 @@ app.patch("/projects/:id/rate", (req, res) => {
   res.json(project);
 });
 
-// 🔍 Serve index.html and details.html
 app.get("/", (req, res) => {
   res.sendFile(path.join(publicPath, "index.html"));
 });
@@ -82,7 +82,6 @@ app.get("/details.html", (req, res) => {
   res.sendFile(path.join(publicPath, "details.html"));
 });
 
-// 🟢 Start server
 app.listen(PORT, async () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
   try {
