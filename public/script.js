@@ -123,7 +123,7 @@ document.getElementById("cancelEditBtn").addEventListener("click", () => {
   document.getElementById("projectName").value = "";
   document.getElementById("projectDesc").value = "";
   // document.getElementById("projectImg").value = "";
-  document.getElementById("formTitle").textContent = "📁 Add new project";
+  document.getElementById("formTitle").textContent = "📁";
   document.getElementById("addProjectBtn").textContent = "➕ Add project";
   document.getElementById("cancelEditBtn").style.display = "none";
 });
