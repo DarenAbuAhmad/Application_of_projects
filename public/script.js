@@ -99,7 +99,7 @@ document.getElementById("addProjectBtn").addEventListener("click", () => {
     project.description = desc;
     // editId = null;
     document.getElementById("formTitle").textContent = "📁";
-    document.getElementById("addProjectBtn").textContent = "➕ Add project";
+    document.getElementById("addProjectBtn").textContent = "➕";
     document.getElementById("cancelEditBtn").style.display = "none";
   } else {
     const newProject = {
