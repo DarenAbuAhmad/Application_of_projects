@@ -118,7 +118,7 @@ function displayProject(project) {
       .then(updatedProject => {
         ratedProjects.push(project.id);
         localStorage.setItem("ratedProjects", JSON.stringify(ratedProjects));
-        displayProject(updatedProject); // تحديث العرض بعد التقييم
+        displayProject(updatedProject); 
       })
       .catch(err => {
         alert("Error rating project.");
