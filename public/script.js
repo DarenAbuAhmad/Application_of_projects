@@ -122,7 +122,6 @@ document.getElementById("cancelEditBtn").addEventListener("click", () => {
   editId = null;
   document.getElementById("projectName").value = "";
   document.getElementById("projectDesc").value = "";
-  // document.getElementById("projectImg").value = "";
   document.getElementById("formTitle").textContent = "📁";
   document.getElementById("addProjectBtn").textContent = "➕";
   document.getElementById("cancelEditBtn").style.display = "none";
