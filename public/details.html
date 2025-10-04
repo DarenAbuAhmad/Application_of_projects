@@ -86,12 +86,9 @@ function getProjects() {
   { id: 5, name: "Simon Game Project", description: "משחק צבעים וקולות", rating: 0 }
     ];
 }
-
 function saveProjects(projects) {
     localStorage.setItem("projectsData", JSON.stringify(projects));
 }
-
-
 function displayProject(project) {
   const container = document.getElementById("projectContainer");
   container.innerHTML = `
