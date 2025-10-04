@@ -114,7 +114,6 @@ document.getElementById("addProjectBtn").addEventListener("click", () => {
   saveProjects(projects);
   document.getElementById("projectName").value = "";
   document.getElementById("projectDesc").value = "";
-  // document.getElementById("projectImg").value = "";
   displayProjects();
 });
 
