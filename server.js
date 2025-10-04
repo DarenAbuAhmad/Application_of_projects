@@ -20,7 +20,6 @@ let projects = [
   { id: 5, name: "Simon Game Project", description: "משחק צבעים וקולות", rating: 0 }
 ];
 
-// 🔄 API Routes
 app.get("/projects", (req, res) => res.json(projects));
 
 app.get("/projects/:id", (req, res) => {
