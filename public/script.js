@@ -16,7 +16,6 @@ function getProjects() {
 function saveProjects(projects) {
   localStorage.setItem("projectsData", JSON.stringify(projects));
 }
-
 function displayProjects() {
   const projects = getProjects();
   container.innerHTML = "";
