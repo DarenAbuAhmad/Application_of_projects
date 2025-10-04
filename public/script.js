@@ -84,7 +84,6 @@ function displayProjects() {
 document.getElementById("addProjectBtn").addEventListener("click", () => {
   const name = document.getElementById("projectName").value.trim();
   const desc = document.getElementById("projectDesc").value.trim();
-  // const img = document.getElementById("projectImg").value.trim();
 
   if (!name || !desc) {
     alert("Name and description are required!");
