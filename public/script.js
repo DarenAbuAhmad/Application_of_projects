@@ -8,7 +8,6 @@ const defaultProjects = [
   { id: 4, name: "Memory Game Project", description: "משחק זיכרון", rating: 0 },
   { id: 5, name: "Simon Game Project", description: "משחק צבעים וקולות", rating: 0 }
 ];
-
 function getProjects() {
   return JSON.parse(localStorage.getItem("projectsData")) || defaultProjects;
 }
