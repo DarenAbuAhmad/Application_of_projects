@@ -6,15 +6,12 @@ const open = require("open");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// 📦 Middlewares
 app.use(cors());
 app.use(express.json());
 
-// 📂 مسار ملفات الواجهة
 const publicPath = path.join(__dirname, "public");
 app.use(express.static(publicPath));
 
-// ✅ بيانات وهمية
 let projects = [
   { id: 1, name: "Subway Game Project", description: "משחק ריצה מהנה ברכבת התחתית", rating: 0 },
   { id: 2, name: "Application Projects", description: "עוזר למשתמשים לארגן פרויקטים", rating: 0 },
